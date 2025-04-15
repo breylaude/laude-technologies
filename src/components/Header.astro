@@ -3,14 +3,14 @@ import Logo from '../components/Logo.astro';
 
 const navItems = [
     { linkText: 'Home', href: '/' },
-    { linkText: 'Services', href: '/services' },
-    { linkText: 'About', href: '/about' },
-    { linkText: 'Contact', href: '/contact' },
     { linkText: 'Revalidation', href: '/revalidation' },
     { linkText: 'Image CDN', href: '/image-cdn' },
     { linkText: 'Edge Function', href: '/edge' },
     { linkText: 'Blobs', href: '/blobs' },
-    { linkText: 'SentriCore™', href: '/sentricore' }
+    { linkText: 'Services', href: '/services' },
+    { linkText: 'Contact', href: '/contact' },
+    { linkText: 'About', href: '/about' },
+    { linkText: 'SentriCore', href: '/sentricore' }
 ];
 ---
 
@@ -18,4 +18,17 @@ const navItems = [
     <a href="/">
         <Logo />
     </a>
+    {
+        !!navItems?.length && (
+            <ul class="flex flex-wrap gap-x-4 gap-y-1">
+                {navItems.map((item) => (
+                    <li>
+                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
+                            {item.linkText}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        )
+    }
 </nav>
